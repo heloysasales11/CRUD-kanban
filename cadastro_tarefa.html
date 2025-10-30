@@ -1,0 +1,23 @@
+<form id="formTarefa">
+  <label>Descrição:</label>
+  <textarea name="descricao" required></textarea>
+  <label>Setor:</label>
+  <input type="text" name="setor" required>
+  <label>Prioridade:</label>
+  <select name="prioridade" required>
+    <option>baixa</option>
+    <option>média</option>
+    <option>alta</option>
+  </select>
+  <label>Usuário:</label>
+  <input type="number" name="id_usuario" required>
+  <button type="submit">Cadastrar Tarefa</button>
+</form>
+<p id="mensagemTarefa"></p>
+
+<script>
+document.getElementById("formTarefa").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("mensagemTarefa").innerText = "Tarefa cadastrada com sucesso";
+});
+</script>
