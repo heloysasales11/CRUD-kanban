@@ -1,0 +1,31 @@
+<div id="tarefas">
+  <div><h3>A Fazer</h3><ul id="afazer"></ul></div>
+  <div><h3>Fazendo</h3><ul id="fazendo"></ul></div>
+  <div><h3>Pronto</h3><ul id="pronto"></ul></div>
+</div>
+
+<script>
+const tarefas = [
+  {descricao: "Relatório", setor: "Financeiro", prioridade: "alta", status: "a fazer", usuario: "João"},
+  {descricao: "Reunião", setor: "RH", prioridade: "média", status: "fazendo", usuario: "Maria"},
+];
+
+function renderizarTarefas() {
+  document.getElementById("afazer").innerHTML = "";
+  document.getElementById("fazendo").innerHTML = "";
+  document.getElementById("pronto").innerHTML = "";
+  tarefas.forEach(t => {
+    const li = document.createElement("li");
+    li.innerText = `${t.descricao} - ${t.setor} - ${t.prioridade} - ${t.usuario}`;
+    const btn = document.createElement("button");
+    btn.innerText = "Alterar Status";
+    btn.onclick = () => {
+      t.status = t.status === "a fazer" ? "fazendo" : t.status === "fazendo" ? "pronto" : "a fazer";
+      renderizarTarefas();
+    };
+    li.appendChild(btn);
+    document.getElementById(t.status.replace(" ", "")).appendChild(li);
+  });
+}
+renderizarTarefas();
+</script>
