@@ -1,3 +1,6 @@
+CREATE DATABASE GerenciadorTarefas;
+USE GerenciadorTarefas;
+
 CREATE TABLE Usuario (
   id_usuario INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
